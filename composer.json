@@ -1,0 +1,54 @@
+{
+    "name": "joshuahales/user-api-package",
+    "homepage": "https://github.com/JoshuaHales/user-api-package",
+    "description": "The User API Service package is a lightweight, framework-agnostic PHP library designed to interact seamlessly with external APIs for user management. It provides a simple yet robust service layer to retrieve and create users via remote APIs, ensuring reliability and ease of integration across various PHP applications, including Laravel, Drupal, and WordPress. The package also includes comprehensive error handling, testability features, and support for modern PHP standards.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Joshuahales\\UserApiPackage\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Joshuahales\\UserApiPackage\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Joshua Hales"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.2",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.3",
+        "phpstan/phpstan": "^1.0"
+    },
+    "scripts": {
+        "test": "phpunit",
+        "analyse": "phpstan analyse src"
+    },
+    "keywords": [
+        "php",
+        "api",
+        "user",
+        "http",
+        "drupal",
+        "laravel",
+        "wordpress",
+        "framework-agnostic"
+    ],
+    "support": {
+        "issues": "https://github.com/JoshuaHales/user-api-package/issues",
+        "source": "https://github.com/JoshuaHales/user-api-package"
+    },
+    "config": {
+        "platform": {
+            "php": "8.2"
+        }
+    }
+}

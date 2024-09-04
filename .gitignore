@@ -1,0 +1,28 @@
+# Ignore Composer dependencies
+/vendor/
+
+# Cache and logs
+*.log
+*.cache
+
+# PHPUnit result cache
+.phpunit.result.cache
+
+# Ignore generated files
+composer.lock
+
+# Ignore environment variables (if any used in the future)
+/.env
+
+# Ignore Mac OS system files
+.DS_Store
+
+# Ignore IDE-specific files (PHPStorm, VSCode, etc.)
+.idea/
+.vscode/
+
+# Ignore coverage reports from PHPUnit (if added later)
+/coverage/
+
+# Ignore any temporary files
+/tmp/
