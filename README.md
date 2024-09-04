@@ -13,12 +13,34 @@
 
 ## Installation
 
-To install this package, simply use Composer:
+To install this package via Composer, you'll need to add the repository to your `composer.json` since it is not on Packagist yet.
+
+1. Open your project's `composer.json` file and add the following:
+
+```json
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/JoshuaHales/user-api-package"
+        }
+    ],
+    "require": {
+        "joshuahales/user-api-package": "dev-master"
+    }
+}
+```
+
+2. Then, run the following command to install the package:
+
 
 ```bash
 composer require joshuahales/user-api-package
 https://github.com/JoshuaHales/user-api-package
 ```
+
+3. Once the package is installed, it will be available in your vendor directory, and you can use it like any other Composer package.
+
 ## Usage
 
 1. Retrieving a User by ID
