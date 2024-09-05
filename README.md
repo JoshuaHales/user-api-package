@@ -1,6 +1,6 @@
 # User API Service Package
 
-**The User API Service package** is a lightweight, framework-agnostic PHP library designed to interact seamlessly with external APIs for user management. It provides a simple yet robust service layer to retrieve and create users via remote APIs, ensuring reliability and ease of integration across various PHP applications, including Laravel, Drupal, and WordPress.
+**The User API Service package** is a lightweight, framework-agnostic PHP library designed to interact seamlessly with external APIs for user management. It integrates with the [ReqRes API](https://reqres.in/), a dummy API, to simulate user data management operations. The package provides an intuitive and robust service layer for retrieving and creating users via remote APIs, ensuring reliability and ease of integration across various PHP applications, including Laravel, Drupal, and WordPress.
 
 ## Key Features
 
@@ -9,7 +9,8 @@
 - **Create New User**: Simplify user creation through the API with easy-to-use methods for specifying user details (first name, last name, job).
 - **Domain-Specific Exception Handling**: Convert generic API exceptions into domain-specific ones, making debugging easier and more intuitive.
 - **DTO Implementation**: All users are returned as JSON-serializable DTOs, supporting conversion to standard array structures for effortless data manipulation.
-- **Fully Testable**: Built with testability in mind, the package includes unit tests to ensure reliability and stability, even when the API is unavailable.
+- **Resilient API Communication**: Gracefully handle common API errors, such as connection failures or invalid data, and provide clear error messages to developers using the package.
+- **Fully Testable**: Built with testability in mind, the package includes unit and integration tests to ensure reliability and stability, even when the API is unavailable or unstable.
 
 ## Installation
 
@@ -42,6 +43,8 @@ https://github.com/JoshuaHales/user-api-package
 3. Once the package is installed, it will be available in your vendor directory, and you can use it like any other Composer package.
 
 ## Usage
+
+This package allows you to easily integrate user management operations into your PHP applications. Below are examples of how to use the provided methods:
 
 1. Retrieving a User by ID
 
@@ -98,13 +101,29 @@ try {
 
 ## Testing
 
-This package is fully testable, with unit tests provided to ensure reliability. To run the tests, execute the following command:
+This package is designed to gracefully handle common errors when interacting with remote APIs. It includes custom exceptions for specific scenarios, such as:
+
+- **ApiConnectionException**: Thrown when the API connection fails.
+- **InvalidUserDataException**: Thrown when the data received from the API is invalid or missing.
+- **UserNotFoundException**: Thrown when a requested user is not found in the API.
+
+By catching and throwing these domain-specific exceptions, the package allows developers to quickly identify and handle issues without relying on generic error messages.
+
+## Testing
+
+This package is fully testable and includes both unit tests and integration tests to ensure its reliability. The unit tests mock API responses to simulate various scenarios, including API downtime or invalid data, while integration tests interact directly with the ReqRes API to validate real-world usage.
+
+Run the tests using PHPUnit:
 
 ```bash
 vendor/bin/phpunit
 ```
 
 The test suite includes tests for retrieving users, handling paginated responses, creating new users, and exception handling.
+
+* Retrieving a user by ID, handling successful and error cases.
+* Creating a new user with correct or incorrect data.
+* Handling API connection failures and invalid data responses.
 
 ## Use Cases
 
@@ -114,8 +133,8 @@ The test suite includes tests for retrieving users, handling paginated responses
 
 ## Compatibility
 
-* PHP Version: 8.2+
-* Framework Compatibility: Compatible with any PHP framework or custom PHP project, including Laravel, Drupal, WordPress, etc.
+- **PHP Versionn**: 8.2+
+- **Framework Compatibility**: The package is designed to be framework-agnostic and works with any PHP framework or custom PHP project, including Laravel, Drupal, WordPress, etc.
 
 ## Contribution
 
