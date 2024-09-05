@@ -12,7 +12,7 @@ $userApiService = new UserApiService();
 
 try {
     // Attempt to retrieve a user by their ID (e.g., 1)
-    $user = $userApiService->getUserById(1);
+    $user = $userApiService->getUserById(16);
 
     // Output the user's details as an array
     print_r($user->toArray());
