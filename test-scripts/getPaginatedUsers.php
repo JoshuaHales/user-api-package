@@ -11,7 +11,7 @@ $userApiService = new UserApiService();
 
 try {
     // Attempt to retrieve a paginated list of users (page 1)
-    $users = $userApiService->getPaginatedUsers(1);
+    $users = $userApiService->getPaginatedUsers(3);
 
     // Loop through the users and output their details as arrays
     foreach ($users as $user) {
